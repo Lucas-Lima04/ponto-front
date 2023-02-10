@@ -1,0 +1,89 @@
+.topmenu {
+    position: absolute;
+    top: 0;
+    width: calc(100vw - 250px);
+    left: 0;
+    padding-left: 250px;
+    height: 80px;
+    background-color: #fff;
+    box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.25);
+    z-index: 1;
+}
+
+.sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: #fff;
+    z-index: 2;
+}
+
+.sidebar .logo {
+    margin: auto;
+    height: 80px;
+    font-size: 1.4rem;
+}
+
+.sidebar .menu {
+    padding-top: 4rem;
+    display: grid;
+    text-align: left;
+}
+
+.sidebar .menu a {
+    padding: 0.5rem 2rem;
+    padding-left: 1rem;
+    width: calc(100% -4rem);
+    text-decoration: none;
+    color: var(--medium);
+    transition: .3s all ease-in-out;
+}
+
+.sidebar .menu a:hover {
+    background: #f1f1f1;
+    color: var(--dark);
+}
+
+.sidebar .menu a span {
+    display: flex;
+}
+
+.sidebar .menu a svg {
+    margin-right: 1rem;
+}
+
+.page {
+    margin-left: 250px;
+    margin-top: 80px;
+    display: flow-root;
+}
+
+.logout {
+    color: var(--medium);
+    text-align: left;
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    cursor: pointer;
+    transition: .2 ease-in-out;
+}
+
+.logout:hover {
+    color: var(--red);
+}
+
+.topmenu {
+    display: flex;
+    justify-content: end;
+}
+
+.topmenu h2 {
+    margin: auto 2rem;
+}
+
+.logo img {
+    height: auto;
+    width: auto;
+}

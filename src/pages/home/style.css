@@ -1,0 +1,32 @@
+.container {
+    margin: 2rem;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.title {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.container table {
+    text-align: left;
+    width: -webkit-fill-available;
+}
+
+.container th {
+    color: var(--medium);
+    font-weight: normal;
+}
+
+.registered {
+    background: #6dd270;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.lastRegisters {
+    border-bottom: 1px solid #f1f1f1;
+    padding: 0.2rem;
+}
