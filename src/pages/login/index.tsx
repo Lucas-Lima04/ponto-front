@@ -83,6 +83,7 @@ function Login() {
           <Typography component="h1" variant="h5">
             Controle de Ponto
           </Typography>
+          <br />
           <Box
             component="form"
             onSubmit={handleLoginSubmit}

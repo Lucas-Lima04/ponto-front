@@ -13,7 +13,9 @@ export interface cellProps {
     bottomBorderColor?: string;
 }
 const doPersonalRelatory = (user: IUser, clockins: IClockIn[], endDate: Date) => {
-    debugger;
+    if (!user.isActive || user.isSuperAdmin) {
+        return [];
+    }
     const numberOfDays = endDate.getDate();
     let maxNumberOfShifts = 0;
 
@@ -41,7 +43,8 @@ const doPersonalRelatory = (user: IUser, clockins: IClockIn[], endDate: Date) =>
             numberOfShifts++;
 
             if(!clockIn.isIn && !lastClockInDate) {
-                totalMilliseconds += clockInDate.getTime();
+                const midnight = new Date(clockInDate.getFullYear(), clockInDate.getMonth(), clockInDate.getDate(), 0, 0, 0, 0);
+                totalMilliseconds += clockInDate.getTime() - midnight.getTime();
             } else if(!clockIn.isIn && lastClockInDate) {
                 totalMilliseconds += clockInDate.getTime() - lastClockInDate.getTime();
             }
@@ -55,7 +58,12 @@ const doPersonalRelatory = (user: IUser, clockins: IClockIn[], endDate: Date) =>
             maxNumberOfShifts = numberOfShifts;
         }
 
-        if (lastClockWasIn && lastClockInDate) {
+        if (lastClockWasIn && lastClockInDate && lastClockInDate.getDate() === (new Date()).getDate()) {
+            const now = new Date();
+            now.setSeconds(0, 0);
+            totalMilliseconds += now.getTime() - lastClockInDate.getTime();
+        }
+        else if (lastClockWasIn && lastClockInDate) {
             const midnight = new Date(lastClockInDate.getFullYear(), lastClockInDate.getMonth(), i, 23, 59, 59, 9999);
             totalMilliseconds += midnight.getTime() - lastClockInDate.getTime();
         }
@@ -64,7 +72,7 @@ const doPersonalRelatory = (user: IUser, clockins: IClockIn[], endDate: Date) =>
             debugger;
             const hours = Math.floor(totalMilliseconds / 3600000);
             const minutes = (totalMilliseconds % 3600000)/60000;
-            totalByday.push(`${hours}h${minutes}`);
+            totalByday.push(`${hours}h${('0' + minutes).slice(-2)}`);
         } else {
             totalByday.push('');
         }

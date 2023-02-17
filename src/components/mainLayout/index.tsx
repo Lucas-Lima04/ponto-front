@@ -38,12 +38,12 @@ function MainLayout({children}: MainLayoutProps) {
                 }
             </div>
 
-            <span className="logout" onClick={logout}>Sair</span>
         </div>
         <div className="topmenu">
             <Typography variant="h6" component="h2">
                 {user?.name}
             </Typography>
+            <span className="logout" onClick={logout}>Sair</span>
         </div>
         <div className="page">
             {children}

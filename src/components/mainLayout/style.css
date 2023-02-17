@@ -63,11 +63,9 @@
 .logout {
     color: var(--medium);
     text-align: left;
-    position: absolute;
-    bottom: 1rem;
-    left: 1rem;
     cursor: pointer;
     transition: .2 ease-in-out;
+    margin: auto 2rem;
 }
 
 .logout:hover {
@@ -76,7 +74,7 @@
 
 .topmenu {
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
 }
 
 .topmenu h2 {
@@ -84,6 +82,6 @@
 }
 
 .logo img {
-    height: auto;
-    width: auto;
+    max-height: 80px;
+    max-width: 250px;
 }

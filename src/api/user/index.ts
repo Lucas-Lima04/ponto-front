@@ -9,6 +9,12 @@ export class UserService {
     return data;
   }
 
+  static async getAllActive(): Promise<IUser[]> {
+    const { data } = await api.get(`/users?activeUsers=true`);
+
+    return data;
+  }
+
   static async createUser({
     name,
     login,
